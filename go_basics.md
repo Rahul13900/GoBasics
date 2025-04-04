@@ -145,3 +145,25 @@ new() allocates memory for a type and returns a pointer to it.
 
 What does the make() function do in Go?
 make() initializes slices, maps, or channels and returns the object.
+
+#####################YouTube#################
+Structs: 
+1. Structs are compatible only when they have same fields in same order and name type structs can't be assinged to another struct as they have different type now. 
+2. A struct with no field is useful; it takes up no space
+    var isPresent map[int]struct{} --> this takes up no space (its used instead of bool)
+
+Pointers:
+1. any struct with a mutex must be passed by reference, because if we pass by value the the lock is meaningless, similar is with wait group
+
+2. In case were we don't want to use pointer, then we need to return the struct with modification
+ex : 
+type Widget struct{
+    ID int
+    Count int
+}
+
+func Expend(w Widget) Widget{ // here we are returning the udpated Widget
+    w.Count--
+    return w
+}
+
